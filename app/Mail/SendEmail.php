@@ -31,10 +31,18 @@ class SendEmail extends Mailable
      */
     public function build()
     {
-       return $this->to($this->emailLog->mail_to)
+       $email = $this->to($this->emailLog->mail_to)
          ->from($this->emailLog->mail_from)
          ->subject($this->emailLog->mail_subject)
          ->text('mail.text', ['emailLog'=>$this->emailLog])
          ->view('mail.html', ['emailLog'=>$this->emailLog]);
+
+       if (count($this->emailLog->attachments)>0) {
+           foreach ($this->emailLog->attachments as $attachment) {
+               $email->attachData(base64_decode($attachment->file_content), $attachment->filename, ['mime' => $attachment->file_type]);
+           }
+       }
+
+       return $email;
     }
 }

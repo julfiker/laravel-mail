@@ -54,13 +54,14 @@ class MailController extends Controller
      *                      )
      *                     )
      *                 ),
-     *                 example={"mail_from": "mail.julfiker@gmail.com",
-     *                       "mail_to": "infro.jewel@gmail.com",
-     *                       "mail_subject": "Test Email",
+     *                 example={
+     *                        "mail_from": "mail.julfiker@gmail.com",
+     *                        "mail_to": "infro.jewel@gmail.com",
+     *                       "mail_subject": "Test Email Again",
      *                       "content_plain": "this text content",
      *                       "content_html": "<h1>this <b>html</b> content</h1>",
-     *                       "attachments": "[{'base64_content'},{'base64_content'}]"
-     *                       }
+     *                       "attachments": "[]"
+     *                    }
      *             )
      *         )
      *     ),

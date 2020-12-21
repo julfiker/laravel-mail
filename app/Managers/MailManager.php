@@ -27,9 +27,20 @@ class MailManager implements MailerContracts
      * @return EmailLog
      */
     public function sendEmail(array $data) {
+
         $this->emailLog->fill($data);
         $this->emailLog->status = 'Posted';
+        $a = [];
+        if (isset($data['attachments'])) {
+            foreach ($data['attachments'] as $file) {
+                $emailAttachment = new EmailAttachment();
+                $emailAttachment->fill($file);
+                $a[] = $emailAttachment;
+            }
+        }
         $this->emailLog->save();
+        if (count($a)>0)
+        $this->emailLog->attachments()->saveMany($a);
         $details = ['emailLog' => $this->emailLog];
         SendEmailJob::dispatch($details);
         return $this->emailLog;
