@@ -1,0 +1,1 @@
+{{$emailLog->content_plain}}
