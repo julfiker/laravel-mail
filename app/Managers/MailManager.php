@@ -57,7 +57,9 @@ class MailManager implements MailerContracts
 
         $emailLog = $this->emailLog;
         if (isset($filter['subject'])) {
-           $emailLog = $emailLog->where('mail_subject', 'like',  "%".$filter['subject']."%");
+           $emailLog = $emailLog->where('mail_subject', 'like',  "%".$filter['subject']."%")
+                                 ->orWhere('mail_to','like',  "%".$filter['subject']."%")
+                                 ->orWhere('mail_from','like',  "%".$filter['subject']."%");
         }
         if (isset($filter['status'])) {
             $emailLog = $emailLog->where('status', '=',  $filter['status']);
