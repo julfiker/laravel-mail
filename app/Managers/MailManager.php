@@ -44,14 +44,14 @@ class MailManager implements MailerContracts
     public function getMailLogs(array $filter)
     {
 
-        $emaillogs = $this->emailLog;
+        $emailLog = $this->emailLog;
         if (isset($filter['subject'])) {
-           $emaillogs = $emaillogs->where('mail_subject', 'like',  "%".$filter['subject']."%");
+           $emailLog = $emailLog->where('mail_subject', 'like',  "%".$filter['subject']."%");
         }
         if (isset($filter['status'])) {
-            $emaillogs = $emaillogs->where('status', '=',  $filter['status']);
+            $emailLog = $emailLog->where('status', '=',  $filter['status']);
         }
 
-        return $emaillogs->paginate(15);
+        return $emailLog->paginate(15);
     }
 }
