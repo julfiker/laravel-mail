@@ -11,8 +11,8 @@
                 <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                      <div class="p-5 grid grid-flow-col grid-rows-1 grid-cols-3 gap-4">
                          <div>
-                             <label>Subject</label>
-                               <t-input v-model="filter.subject" @keyup="getEmailLogs"  />
+                             <label>Search</label>
+                               <t-input v-model="filter.subject" @keyup="getEmailLogs"   />
                          </div>
                          <div>
                              <label>Status</label>
