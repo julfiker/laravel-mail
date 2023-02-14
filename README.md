@@ -12,7 +12,7 @@ My objective to use laravel framework in a best way like other programming langu
    
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Julfiker via [julfiker@gmail.com]. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within repository, please send an e-mail to Julfiker via [julfiker@gmail.com]. All security vulnerabilities will be promptly addressed.
 
 ## License
 MIT
